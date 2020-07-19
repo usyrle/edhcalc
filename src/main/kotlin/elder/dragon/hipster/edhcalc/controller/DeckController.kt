@@ -13,10 +13,14 @@ public class DeckController {
 
     @GetMapping("/")
     fun render(model: Model): String {
-        var asyncHttp = "https://edhrec-json.s3.amazonaws.com/en/decks/nazahn-revered-bladesmith.json"
+        val asyncHttp = "https://edhrec-json.s3.amazonaws.com/en/decks/nazahn-revered-bladesmith.json"
                 .httpGet()
-                .responseObject<EdhrecDeck> { _, _, result ->
-                    model["deck"] = result.get().description
+                .responseObject(EdhrecDeck.Deserializer()) { _, _, result ->
+                    val (deck, error) = result
+
+                    if (deck != null) {
+                        model["deck"] = deck.decklist
+                    }
                 }
 
         asyncHttp.join()

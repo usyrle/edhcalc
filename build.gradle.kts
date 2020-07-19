@@ -28,8 +28,8 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	implementation("com.github.kittinunf.fuel:fuel:2.2.3")
 	implementation("com.github.kittinunf.fuel:fuel-gson:2.2.3")
+	implementation("com.google.code.gson:gson:2.8.5")
 
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
@@ -37,6 +37,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
+	testImplementation("org.assertj:assertj-core:3.16.1")
 }
 
 tasks.withType<Test> {
