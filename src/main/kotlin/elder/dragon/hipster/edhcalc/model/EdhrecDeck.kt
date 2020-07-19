@@ -17,23 +17,28 @@ data class EdhrecDeck(
         val planeswalker: Int,
         val land: Int,
         val nonbasic: Int,
-        var decklist: List<String>
+        val decklist: List<String>
 ) {
     class Deserializer: ResponseDeserializable<EdhrecDeck> {
         override fun deserialize(content: String) : EdhrecDeck{
             val deckJson = Gson().fromJson(content, JsonObject::class.java)
 
-            val finalDeck = Gson().fromJson(content, EdhrecDeck::class.java)
-
-            val splitPattern = Pattern.compile("(\n|\r\n)+\\d?\\s?")
-            val list = deckJson.get("description")
+            val decklist = deckJson.get("description")
                     .asString.split("(\n|\r\n)+\\d?\\s?".toRegex())
                     .filter { card -> !card.contains("<a") && !basics.contains(card)}
 
-
-            finalDeck.decklist = list
-
-            return finalDeck
+            return EdhrecDeck(
+                deckJson.get("basic").asInt,
+                deckJson.get("creature").asInt,
+                deckJson.get("enchantment").asInt,
+                deckJson.get("artifact").asInt,
+                deckJson.get("instant").asInt,
+                deckJson.get("sorcery").asInt,
+                deckJson.get("planeswalker").asInt,
+                deckJson.get("land").asInt,
+                deckJson.get("nonbasic").asInt,
+                decklist
+            )
         }
     }
 }
