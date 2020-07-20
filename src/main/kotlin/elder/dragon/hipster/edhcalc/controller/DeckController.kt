@@ -23,13 +23,7 @@ public class DeckController {
         val asyncHttp = "https://edhrec-json.s3.amazonaws.com/en/decks/$slug.json"
                 .httpGet()
                 .responseObject(EdhrecDeck.Deserializer()) { _, _, result ->
-                    val (deck, error) = result
-
-                    if (deck != null) {
-                        model["deck"] = deck.decklist
-                    } else {
-                        model["deck"] = "Not found"
-                    }
+                    model["deck"] = result.component1()?.decklist ?: "Not found"
                 }
 
         asyncHttp.join()
