@@ -24,7 +24,7 @@ data class EdhrecDeck(
             val deckJson = Gson().fromJson(content, JsonObject::class.java)
 
             val decklist = deckJson.get("description")
-                    .asString.split("(\n|\r\n)+\\d?\\s?".toRegex())
+                    .asString.split("(\n|\r\n)+\\d{1,2}\\s?".toRegex())
                     .filter { card -> !card.contains("<a") && !basics.contains(card)}
 
             return EdhrecDeck(
