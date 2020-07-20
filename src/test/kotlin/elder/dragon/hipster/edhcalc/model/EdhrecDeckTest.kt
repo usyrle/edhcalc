@@ -18,7 +18,7 @@ internal class EdhrecDeckTest {
           "artifact": 21,
           "planeswalker": 1,
           "land": 36,
-          "description": "<a href=\"https://www.cardkingdom.com/builder?utm_campaign=edhrec\">Buy this decklist from Card Kingdom</a>\n<a href=\"https://store.tcgplayer.com/massentry?partner=EDHREC\">Buy this decklist from TCGplayer</a>\n1 Nazahn, Revered Bladesmith\n\n1 Balan, Wandering Knight\n1 Dispatch\n\n1 Cultivate\n1 Hammer of Nazahn\n1 Sigarda's Aid\n1 Nahiri, the Lithomancer\n1 Inventors' Fair\n6 Forest"
+          "description": "<a href=\"https://www.cardkingdom.com/builder?utm_campaign=edhrec\">Buy this decklist from Card Kingdom</a>\n<a href=\"https://store.tcgplayer.com/massentry?partner=EDHREC\">Buy this decklist from TCGplayer</a>\n1 Nazahn, Revered Bladesmith\n\n1 Balan, Wandering Knight\n1 Dispatch\n\n1 Cultivate\n1 Hammer of Nazahn\n1 Sigarda's Aid\n1 Nahiri, the Lithomancer\n1 Inventors' Fair\n16 Plains"
         }
         """.trimIndent()
 
